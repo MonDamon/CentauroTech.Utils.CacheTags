@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<configuration>
+    <configSections>
+        <section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler, log4net" />
+    </configSections>
+    <startup>
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.0"/>
+    </startup>
+    <log4net>
+        <appender name="ElasticSearchAsyncAppender" type="log4net.ElasticSearch.Async.ElasticSearchAsyncAppender, log4net.ElasticSearch.Async">
+            <connectionString value="Scheme=https;
+                                     Server=elasticsearch.somewebsite.com;
+                                     Port=443;
+                                     Index=log-myapplication;
+                                     Rolling=true;
+                                     SkipCertificateValidation=true;
+                                     SkipProxy=true;
+                                     HttpDefaultConnectionLimit=30;
+                                     Pipeline=auto-timestamp;
+                                     GzipCompression=true;
+                                     " />
+            <maxRetries>10</maxRetries>
+            <retrySeedDelay>00:00:05</retrySeedDelay>
+            <retryMaxDelay>00:05:00</retryMaxDelay>
+            <onCloseTimeout>00:00:10</onCloseTimeout>
+            <externalIpCheckAddress>8.8.8.8</externalIpCheckAddress>
+            <flushTriggerBufferSize>256</flushTriggerBufferSize>
+            <rollingBufferSize>2048</rollingBufferSize>
+            <evaluator type="log4net.Core.LevelEvaluator">
+                <threshold value="ERROR"/>
+            </evaluator>
+        </appender>
+        <root>
+            <level value="ALL"/>
+            <appender-ref ref="ElasticSearchAsyncAppender" />
+        </root>
+    </log4net>
+</configuration>
