@@ -1,1 +1,1 @@
-# CentauroTech.Akamai.CacheTags
+# CentauroTech.Utils.CacheTags
