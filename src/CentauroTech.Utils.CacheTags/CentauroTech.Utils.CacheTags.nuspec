@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<package >
+    <metadata>
+        <id>CentauroTech.Utils.Cache</id>
+        <version>1.0.0</version>
+        <authors>Cleyton Souza</authors>
+        <owners>CentauroTech</owners>
+        <iconUrl>http://nest.azurewebsites.net/images/nuget-icon.png</iconUrl>
+        <licenseUrl>https://github.com/MonDamon/CentauroTech.Utils.CacheTags/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/MonDamon/CentauroTech.Utils.CacheTags</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>
+            CentauroTech.Utils.Cache is a helper to be used to add CacheTags to responses sent to your CDN, for instance Akamai.
+        </description>
+        <releaseNotes>
+
+        - You can set the cache tag name configuring "Edge-Cache-Tag" key in your settings file.
+        - You can use it as extension to HttpResponseMessage
+        - It adds the AddCacheTagsHeader to NameValueCollection
+
+        </releaseNotes>
+        <copyright>Copyright 2019</copyright>
+        <tags>Akamai CacheTag CDN Header HttpResponseMessage</tags>
+        <dependencies>                    
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="bin\lib\net47\CentauroTech.Utils.CacheTags*.dll" target="lib"/>
+        <file src="bin\lib\net47\CentauroTech.Utils.CacheTags*.pdb" target="lib"/>
+        <file src="bin\lib\net47\CentauroTech.Utils.CacheTags*.XML" target="lib"/>
+        <file src="readme.txt" target="" />
+    </files>
+</package>
