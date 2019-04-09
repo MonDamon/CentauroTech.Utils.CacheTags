@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package >
+    <metadata>
+        <id>CentauroTech.Utils.CacheTags</id>
+        <version>1.0.0</version>
+        <authors>Cleyton Souza</authors>
+        <owners>CentauroTech</owners>
+        <iconUrl>http://nest.azurewebsites.net/images/nuget-icon.png</iconUrl>
+        <licenseUrl>https://github.com/MonDamon/CentauroTech.Utils.CacheTags/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/MonDamon/CentauroTech.Utils.CacheTags</projectUrl>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <description>CentauroTech.Utils.CacheTags
+        </description>
+        <releaseNotes>
+            - none
+        </releaseNotes>
+        <copyright>Copyright 2019</copyright>
+        <tags>CacheTags, CDN, Akamai,HttpResponseMessage, Header</tags>
+        <dependencies>              
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="lib\**\CentauroTech.Utils.CacheTags*.dll" target="lib"/>
+        <file src="lib\**\CentauroTech.Utils.CacheTags*.pdb" target="lib"/>
+        <file src="lib\**\CentauroTech.Utils.CacheTags*.XML" target="lib"/>
+        <file src="readme.txt" target="" />
+    </files>
+</package>
