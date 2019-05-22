@@ -1,8 +1,7 @@
 <appSettings>
    
   <add key="EdgeCacheTag" value="Edge-Cache-Tag"/> <!-- Header's name -->
-  <add key="TipoCacheTagModelo" value="data-model"/> <!-- type of cache tag-->
-  <add key="PrefixoCacheTag" value="QAS"/> <!-- Environment identifier -->  
+  <add key="EnableCacheTag" value="true"/> <!-- Header's name -->
    
- </appSettings>
+</appSettings>
   

@@ -3,10 +3,10 @@ Framework "4.7"
 properties {
     $base_dir       = (Get-Item (Resolve-Path .)).Parent.FullName
     $bin_dir        = "$base_dir\bin\"
-    $sln_path       = "$base_dir\src\CentauroTech.Utils.CacheTags.sln"
+    $sln_path       = "$base_dir\CentauroTech.Utils.CacheTags.sln"
     $config         = "Release"
-    $tests_path     = "$base_dir\src\CentauroTech.Utils.CacheTags.Tests\bin\$config\CentauroTech.Utils.CacheTags.Tests.dll"
-    $xunit_path     = "$base_dir\src\packages\xunit.runner.console.2.1.0\tools\xunit.console.exe"
+    $tests_path     = "$base_dir\tests\bin\$config\CentauroTech.Utils.CacheTags.Tests.dll"
+    $xunit_path     = "$base_dir\packages\xunit.runner.console.2.1.0\tools\xunit.console.exe"
     $dirs           = @($bin_dir)
     $artefacts      = @("$base_dir\LICENSE", "$base_dir\scripts\readme.txt")
     $nuget_path     = "$base_dir\tools\nuget\NuGet.exe"
