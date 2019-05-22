@@ -2,7 +2,7 @@
 <package >
     <metadata>
         <id>CentauroTech.Utils.CacheTags</id>
-        <version>1.0.0</version>
+        <version>1.0.2-beta</version>
         <authors>Cleyton Souza</authors>
         <owners>CentauroTech</owners>
         <iconUrl>http://nest.azurewebsites.net/images/nuget-icon.png</iconUrl>
@@ -16,7 +16,9 @@
         </releaseNotes>
         <copyright>Copyright 2019</copyright>
         <tags>CacheTags, CDN, Akamai,HttpResponseMessage, Header</tags>
-        <dependencies>              
+        <dependencies>  
+            <dependency id="log4net" version="2.0.8" />   
+            <dependency id="Newtonsoft.Json" version="6.0.0" />            
         </dependencies>
     </metadata>
     <files>
