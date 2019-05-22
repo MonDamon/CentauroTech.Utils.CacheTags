@@ -2,7 +2,7 @@
 <package >
     <metadata>
         <id>CentauroTech.Utils.CacheTags</id>
-        <version>1.0.2-beta</version>
+        <version>1.0.3-beta</version>
         <authors>Cleyton Souza</authors>
         <owners>CentauroTech</owners>
         <iconUrl>http://nest.azurewebsites.net/images/nuget-icon.png</iconUrl>

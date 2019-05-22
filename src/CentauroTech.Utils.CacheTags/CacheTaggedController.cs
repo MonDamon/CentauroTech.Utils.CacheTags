@@ -10,10 +10,11 @@ using System;
 using log4net;
 using System.Web.Http;
 using System.Web;
+using System.Web.Mvc;
 
 namespace CentauroTech.Utils.CacheTags
 { 
-    public class CacheTaggedController 
+    public class CacheTaggedController: AsyncController
     {    
         readonly bool _habilitarCacheTag = Convert.ToBoolean(ConfigurationManager.AppSettings["HabilitarCacheTag"] ?? "false");
         readonly string _edgeCacheTag = ConfigurationManager.AppSettings["EdgeCacheTag"] ?? "Edge-Cache-Tag";                     
