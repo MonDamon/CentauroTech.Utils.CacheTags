@@ -25,7 +25,7 @@ namespace CentauroTech.Utils.CacheTags
             return tags;
         };
 
-        protected virtual HttpResponseMessage AddCacheTagsHeader(HttpResponseMessage response, IEnumerable<string> tags, string prefixo = "")
+        protected virtual HttpResponseMessage AddCacheTagsHeader(HttpResponseMessage response, IEnumerable<string> tags)
         {
             try
             {
@@ -35,7 +35,7 @@ namespace CentauroTech.Utils.CacheTags
                     if (!response.Headers.TryGetValues(_edgeCacheTag, out IEnumerable<string> cacheTagsHeader))
                         cacheTagsHeader = new List<string> { };
 
-                    cacheTagsHeader = cacheTagsHeader.Concat(tags.Select(x => $"{(string.IsNullOrWhiteSpace(prefixo) ? prefixo : $"{prefixo}-")}{x}"));
+                    cacheTagsHeader = cacheTagsHeader.Concat(tags);
 
                     if (cacheTagsHeader.Any())
                         response.Headers.Add(_edgeCacheTag, string.Join(",", cacheTagsHeader));
@@ -44,8 +44,8 @@ namespace CentauroTech.Utils.CacheTags
             }
             catch (Exception ex)
             {
-                _logger.Error($"erro ao gerar a CacheTag: {string.Join(",", tags)}", ex);
-                throw new Exception("Erro ao gerar a resposta");
+                _logger.Error($"Error generating CacheTag: {string.Join(",", tags)}", ex);
+                throw new Exception("Error generating CacheTag");
             }
 
         }
@@ -82,7 +82,8 @@ namespace CentauroTech.Utils.CacheTags
         {
             
             return CacheTagFormatter(tags);
-        }     
+        }  
+           
         public override Task<HttpResponseMessage> ExecuteAsync(HttpControllerContext controllerContext, CancellationToken cancellationToken)
         {
             return base.ExecuteAsync(controllerContext, cancellationToken).ContinueWith((x) =>

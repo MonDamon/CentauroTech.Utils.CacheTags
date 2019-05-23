@@ -87,7 +87,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyVersionInfo.cs" />
+    <Compile Include="CacheTaggable.cs" />
     <Compile Include="CacheTaggedApiController.cs" />
+    <Compile Include="CacheTaggedController.cs" />
     <Compile Include="Infrastructure\UrlParameterComparer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -16,35 +16,32 @@ namespace CentauroTech.Utils.CacheTags
 { 
     public class CacheTaggedController: AsyncController
     {    
-        readonly bool _habilitarCacheTag = Convert.ToBoolean(ConfigurationManager.AppSettings["HabilitarCacheTag"] ?? "false");
+        readonly bool _enableCacheTag = Convert.ToBoolean(ConfigurationManager.AppSettings["EnableCacheTag"] ?? "false");
         readonly string _edgeCacheTag = ConfigurationManager.AppSettings["EdgeCacheTag"] ?? "Edge-Cache-Tag";                     
-        private Func<IEnumerable<string>, IEnumerable<string>> MontarCacheTag = tags =>
+
+        readonly ILog _logger = LogManager.GetLogger("CacheTaggedController");
+        protected Func<IEnumerable<string>, IEnumerable<string>> CacheTagFormatter = tags =>
         {
-
-            string tipoTagModelo = ConfigurationManager.AppSettings["TipoCacheTagModelo"] ?? "data-model";
-            string prefixo = ConfigurationManager.AppSettings["PrefixoCacheTag"];
-
-            return new List<string> { }.Concat(tags
-                    .Select(x => $"{(string.IsNullOrWhiteSpace(tipoTagModelo) ? tipoTagModelo : $"{tipoTagModelo}-")}{x}")
-                        .Select(z => $"{(string.IsNullOrWhiteSpace(prefixo) ? prefixo : $"{prefixo}-")}{z}")).Distinct();
-
-        };
-
-        protected virtual void AddCacheTagsHeader(HttpContextBase httpContext, IEnumerable<string> tags, string prefixo = "")
+            return tags;
+        };              
+        protected virtual void AddCacheTagsHeader(HttpContextBase httpContext, IEnumerable<string> tags)
         {
-
-            if (_habilitarCacheTag && tags.Any())
-            {
-                IEnumerable<string> cacheTagsHeader = new List<string> { };
-
-                if (!httpContext.Response.Headers.AllKeys.Any(x => x.Equals(_edgeCacheTag)))
+            try
+            {            
+                if (_enableCacheTag && tags.Any())
                 {
-                    cacheTagsHeader = cacheTagsHeader.Concat(tags.Select(x => $"{(string.IsNullOrWhiteSpace(prefixo) ? prefixo : $"{prefixo}-")}{x}"));
+                    IEnumerable<string> cacheTagsHeader = new List<string> { };
 
-                    var cacheTagsHeaderFormatado = MontarCacheTag(cacheTagsHeader);
-
-                    httpContext.Response.Headers.Add(_edgeCacheTag, string.Join(",", cacheTagsHeaderFormatado));
+                    if (!httpContext.Response.Headers.AllKeys.Any(x => x.Equals(_edgeCacheTag)))
+                    {                   
+                        httpContext.Response.Headers.Add(_edgeCacheTag, string.Join(",", CacheTagFormatter(tags)));
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                _logger.Error($"Error generating CacheTag: {string.Join(",", tags)}", ex);
+                throw new Exception("Error generating CacheTag");
             }
 
         }

@@ -2,20 +2,25 @@
 <package >
     <metadata>
         <id>CentauroTech.Utils.CacheTags</id>
-        <version>1.0.3-beta</version>
+        <version>1.1.0</version>
+        <title>CentauroTech.Utils.CacheTags</title>
         <authors>Cleyton Souza</authors>
-        <owners>CentauroTech</owners>
-        <iconUrl>http://nest.azurewebsites.net/images/nuget-icon.png</iconUrl>
+        <owners>CentauroTech.Utils.CacheTags</owners>
+        <iconUrl>http://en.gravatar.com/userimage/4241994/3c65f3dcbad06bacd1800a6e0c55bb05.png?size=200</iconUrl>
         <licenseUrl>https://github.com/MonDamon/CentauroTech.Utils.CacheTags/blob/master/LICENSE</licenseUrl>
         <projectUrl>https://github.com/MonDamon/CentauroTech.Utils.CacheTags</projectUrl>
         <requireLicenseAcceptance>true</requireLicenseAcceptance>
-        <description>CentauroTech.Utils.CacheTags
+        <description> 
+        CentauroTech.Utils.CacheTags helps you to add cache tags to your response header's and use it to clean up the content cached in your CDN. 
+
+Your CDN must accept your content to be tagged before you can clean up the content by using tags.
+So you'll can  mark related content with identical tags to clean up then in the future instead using CPCODE's or URL's 
         </description>
         <releaseNotes>
-            - none
+            - Missing unit tests
         </releaseNotes>
         <copyright>Copyright 2019</copyright>
-        <tags>CacheTags, CDN, Akamai,HttpResponseMessage, Header</tags>
+        <tags>CacheTags, CDN, Akamai,HttpResponseMessage, Header,AsyncApiController, Header, ApiController</tags>
         <dependencies>  
             <dependency id="log4net" version="2.0.8" />   
             <dependency id="Newtonsoft.Json" version="6.0.0" />            
