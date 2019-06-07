@@ -22,13 +22,14 @@ namespace CentauroTech.Utils.CacheTags
 
         public override void OnActionExecuting(System.Web.Http.Controllers.HttpActionContext actionContext)
         {
+            var taggedController = (CacheTaggedApiController)actionContext.ControllerContext.Controller;
             if (actionContext.ControllerContext.Request.Method.Equals(HttpMethod.Get) && _enableCacheTag)
-            {
-                var taggedController = (CacheTaggedApiController)actionContext.ControllerContext.Controller;
+            {                
                 if(!string.IsNullOrWhiteSpace(_parametersToCache))
-                ((List<string>)taggedController.QueryStringToCheck).AddRange(_parametersToCache.Split(',').Select(x=>x));
-                taggedController.AddCacheTag = true;
+                ((List<string>)taggedController.QueryStringToCheck).AddRange(_parametersToCache.Split(',').Select(x=>x));                
             }
+            else
+               taggedController.AddCacheTag = false;
         }
     }
 }

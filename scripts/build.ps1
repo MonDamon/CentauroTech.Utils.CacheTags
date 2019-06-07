@@ -13,7 +13,7 @@ properties {
     $nuspec_path    = "$base_dir\scripts\CentauroTech.Utils.CacheTags.nuspec"
 }
 
-task default        -depends  Test, CopyArtefactsToBinDirectory, CreateNugetPackage
+task default        -depends  Clean , Compile, Test, CopyArtefactsToBinDirectory, CreateNugetPackage
 
 task Clean {
     $dirs | % { Recreate-Directory $_ }

@@ -18,8 +18,8 @@ namespace CentauroTech.Utils.CacheTags
         readonly string _edgeCacheTag = ConfigurationManager.AppSettings["EdgeCacheTag"] ?? "Edge-Cache-Tag";
         readonly ILog _logger = LogManager.GetLogger("CacheTaggedApiController");
         public IEnumerable<string> QueryStringToCheck { get; set; } = new List<string> ();
+        public bool AddCacheTag { get; set; }  = true ;  
 
-        public bool AddCacheTag { get; set; }      
         protected Func<IEnumerable<string>, IEnumerable<string>> CacheTagFormatter = tags =>
         {
             return tags;
